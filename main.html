@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>COSC2436 Schedule with CSES Links</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 30px;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 15px;
+        }
+        .export-btn {
+            background: #27ae60;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-bottom: 20px;
+            transition: background 0.3s;
+        }
+        .export-btn:hover {
+            background: #229954;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            font-size: 13px;
+        }
+        th {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px 10px;
+            text-align: left;
+            font-weight: 600;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+        td {
+            padding: 10px;
+            border-bottom: 1px solid #e0e0e0;
+            vertical-align: top;
+        }
+        tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+        tr:hover {
+            background-color: #e3f2fd;
+            transition: background-color 0.2s;
+        }
+        .week-col { width: 6%; font-weight: bold; color: #2980b9; }
+        .date-col { width: 12%; color: #7f8c8d; font-size: 11px; }
+        .topic-col { width: 20%; font-weight: 500; }
+        .difficulty-col { width: 8%; }
+        .problems-col { width: 54%; }
+        .difficulty-easy { 
+            background: #d5f4e6; 
+            color: #27ae60; 
+            padding: 3px 6px; 
+            border-radius: 4px; 
+            font-size: 11px;
+            font-weight: bold;
+        }
+        .difficulty-medium { 
+            background: #fff3cd; 
+            color: #f39c12; 
+            padding: 3px 6px; 
+            border-radius: 4px; 
+            font-size: 11px;
+            font-weight: bold;
+        }
+        .difficulty-hard { 
+            background: #f8d7da; 
+            color: #e74c3c; 
+            padding: 3px 6px; 
+            border-radius: 4px; 
+            font-size: 11px;
+            font-weight: bold;
+        }
+        .cses-link {
+            display: inline-block;
+            background: #3498db;
+            color: white;
+            padding: 3px 6px;
+            text-decoration: none;
+            border-radius: 3px;
+            margin: 1px;
+            font-size: 10px;
+            transition: background 0.2s;
+        }
+        .cses-link:hover {
+            background: #2980b9;
+            text-decoration: none;
+        }
+        .exam-row {
+            background: #fff3cd !important;
+            font-weight: bold;
+        }
+        .part-header {
+            background: #e8f5e8 !important;
+            font-weight: bold;
+            font-size: 14px;
+            color: #27ae60;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>COSC2436 Data Structures - Course Schedule with CSES Problem Links</h1>
+        
+        <button class="export-btn" onclick="exportToCSV()">📊 Export to CSV</button>
+        
+        <table id="scheduleTable">
+            <thead>
+                <tr>
+                    <th class="week-col">Week</th>
+                    <th class="date-col">Date</th>
+                    <th class="topic-col">Topic</th>
+                    <th class="difficulty-col">Difficulty</th>
+                    <th class="problems-col">CSES Problems & Links</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="part-header">
+                    <td colspan="5"><strong>Part 0 - Introduction & Review</strong></td>
+                </tr>
+                <tr>
+                    <td class="week-col">1</td>
+                    <td class="date-col">26 August, 2025</td>
+                    <td class="topic-col">Introduction & C++ Review</td>
+                    <td class="difficulty-col"><span class="difficulty-easy">Easy</span></td>
+                    <td class="problems-col">
+                        <a href="https://cses.fi/problemset/task/1637" class="cses-link">Removing Digits</a>
+                        <a href="https://cses.fi/problemset/task/1633" class="cses-link">Dice Combinations</a>
+                        <a href="https://cses.fi/problemset/task/1638" class="cses-link">Grid Paths</a>
+                        <a href="https://cses.fi/problemset/task/1094" class="cses-link">Increasing Array</a>
+                        <a href="https://cses.fi/problemset/task/1660" class="cses-link">Subarray Sums I</a>
+                        <a href="https://cses.fi/problemset/task/1661" class="cses-link">Subarray Sums II</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="week-col">2</td>
+                    <td class="date-col">2 September, 2025</td>
+                    <td class="topic-col">Recursion</td>
+                    <td class="difficulty-col"><span class="difficulty-easy">Easy</span></td>
+                    <td class="problems-col">
+                        <span style="color: #666; font-style: italic;">No specific CSES problems listed</span>
+                    </td>
+                </tr>
+                
+                <tr class="part-header">
+                    <td colspan="5"><strong>Part 1 - Linear Data Structures</strong></td>
+                </tr>
+                <tr>
+                    <td class="week-col">3</td>
+                    <td class="date-col">9 September, 2025</td>
+                    <td class="topic-col">Arrays</td>
+                    <td class="difficulty-col"><span class="difficulty-easy">Easy</span></td>
+                    <td class="problems-col">
+                        <a href="https://cses.fi/problemset/task/1640" class="cses-link">Sum of Two Values</a>
+                        <a href="https://cses.fi/problemset/task/1643" class="cses-link">Maximum Subarray Sum</a>
+                        <a href="https://cses.fi/problemset/task/1077" class="cses-link">Distinct Values in Window</a>
+                        <a href="https://cses.fi/problemset/task/1646" class="cses-link">Static Range Sum Queries</a>
+                        <a href="https://cses.fi/problemset/task/1650" class="cses-link">Range Xor Queries</a>
+                        <a href="https://cses.fi/problemset/task/1651" class="cses-link">Range Update Queries</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="week-col">4</td>
+                    <td class="date-col">16 September, 2025</td>
+                    <td class="topic-col">Lists (Singly & Doubly Linked)</td>
+                    <td class="difficulty-col"><span class="difficulty-medium">Medium</span></td>
+                    <td class="problems-col">
+                        <a href="https://cses.fi/problemset/task/1083" class="cses-link">Missing Number</a>
+                        <a href="https://cses.fi/problemset/task/2183" class="cses-link">Missing Coin Sum</a>
+                        <a href="https://cses.fi/problemset/task/1620" class="cses-link">Factory Machines</a>
+                        <a href="https://cses.fi/problemset/task/1641" class="cses-link">Sum of Three Values</a>
+                        <a href="https://cses.fi/problemset/task/1084" class="cses-link">Apartments</a>
+                        <a href="https://cses.fi/problemset/task/1630" class="cses-link">Tasks and Deadlines</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="week-col">5</td>
+                    <td class="date-col">23 September, 2025</td>
+                    <td class="topic-col">Quadratic Sorting</td>
+                    <td class="difficulty-col"><span class="difficulty-easy">Easy</span></td>
+                    <td class="problems-col">
+                        <span style="color: #666; font-style: italic;">No specific CSES problems listed</span>
+                    </td>
+                </tr>
+                
+                <tr class="exam-row">
+                    <td colspan="5"><strong>🔸 Exam 1 - Tuesday September 30</strong></td>
+                </tr>
+                
+                <tr class="part-header">
+                    <td colspan="5"><strong>Part 2 - Linear Data Structures Continue</strong></td>
+                </tr>
+                <tr>
+                    <td class="week-col">7</td>
+                    <td class="date-col">7 October, 2025</td>
+                    <td class="topic-col">Stacks</td>
+                    <td class="difficulty-col"><span class="difficulty-medium">Medium</span></td>
+                    <td class="problems-col">
+                        <a href="https://cses.fi/problemset/task/1645" class="cses-link">Nearest Smaller Values</a>
+                        <a href="https://cses.fi/problemset/task/1076" class="cses-link">Sliding Window Maximum</a>
+                        <a href="https://cses.fi/problemset/task/1648" class="cses-link">Subarray Sum Queries</a>
+                        <a href="https://cses.fi/problemset/task/2180" class="cses-link">Stack Operations</a>
+                        <a href="https://cses.fi/problemset/task/1619" class="cses-link">Restaurant Customers</a>
+                        <a href="https://cses.fi/problemset/task/1163" class="cses-link">Traffic Lights</a>
+                    </td>
+                </tr>
+                
+                <tr class="part-header">
+                    <td colspan="5"><strong>Part 3 - Queues and Priority Queues</strong></td>
+                </tr>
+                <tr>
+                    <td class="week-col">8</td>
+                    <td class="date-col">14 October, 2025</td>
+                    <td class="topic-col">Queues & Priority Queues (Heaps)</td>
+                    <td class="difficulty-col"><span class="difficulty-medium">Medium</span></td>
+                    <td class="problems-col">
+                        <a href="https://cses.fi/problemset/task/1090" class="cses-link">Ferris Wheel</a>
+                        <a href="https://cses.fi/problemset/task/1629" class="cses-link">Movie Festival</a>
+                        <a href="https://cses.fi/problemset/task/1629" class="cses-link">Projects</a>
+                        <a href="https://cses.fi/problemset/task/1634" class="cses-link">Minimizing Coins</a>
+                        <a href="https://cses.fi/problemset/task/1635" class="cses-link">Coin Combinations I</a>
+                        <a href="https://cses.fi/problemset/task/1636" class="cses-link">Coin Combinations II</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="week-col">9</td>
+                    <td class="date-col">21 October, 2025</td>
+                    <td class="topic-col">Hash Tables</td>
+                    <td class="difficulty-col"><span class="difficulty-medium">Medium</span></td>
+                    <td class="problems-col">
+                        <a href="https://cses.fi/problemset/task/1621" class="cses-link">Distinct Numbers</a>
+                        <a href="https://cses.fi/problemset/task/1141" class="cses-link">Playlist</a>
+                        <a href="https://cses.fi/problemset/task/1068" class="cses-link">Array Description</a>
+                        <a href="https://cses.fi/problemset/task/1073" class="cses-link">Towers</a>
+                        <a href="https://cses.fi/problemset/task/2216" class="cses-link">Collecting Numbers II</a>
+                        <a href="https://cses.fi/problemset/task/1074" class="cses-link">Stick Lengths</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="week-col">10</td>
+                    <td class="date-col">28 October, 2025</td>
+                    <td class="topic-col">Sorting (Merge/Quick) & Binary Search Trees</td>
+                    <td class="difficulty-col"><span class="difficulty-medium">Medium</span></td>
+                    <td class="problems-col">
+                        <span style="color: #666; font-style: italic;">No specific CSES problems listed</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="week-col">11</td>
+                    <td class="date-col">4 November</td>
+                    <td class="topic-col">Strings</td>
+                    <td class="difficulty-col"><span class="difficulty-medium">Medium</span></td>
+                    <td class="problems-col">
+                        <a href="https://cses.fi/problemset/task/1069" class="cses-link">Repetitions</a>
+                        <a href="https://cses.fi/problemset/task/1753" class="cses-link">String Matching</a>
+                        <a href="https://cses.fi/problemset/task/1732" class="cses-link">Finding Borders</a>
+                        <a href="https://cses.fi/problemset/task/1622" class="cses-link">Word Combinations</a>
+                        <a href="https://cses.fi/problemset/task/1108" class="cses-link">Palindrome Queries</a>
+                        <a href="https://cses.fi/problemset/task/1110" class="cses-link">Substring Order I</a>
+                    </td>
+                </tr>
+                
+                <tr class="exam-row">
+                    <td colspan="5"><strong>🔸 Exam 2 - Tuesday November 4th</strong></td>
+                </tr>
+                
+                <tr class="part-header">
+                    <td colspan="5"><strong>Part 4 - Trees, BST, AVL</strong></td>
+                </tr>
+                <tr>
+                    <td class="week-col">12</td>
+                    <td class="date-col">11 November, 2025</td>
+                    <td class="topic-col">Binary Trees & AVL Trees</td>
+                    <td class="difficulty-col"><span class="difficulty-hard">Hard</span></td>
+                    <td class="problems-col">
+                        <a href="https://cses.fi/problemset/task/1674" class="cses-link">Subordinates</a>
+                        <a href="https://cses.fi/problemset/task/1131" class="cses-link">Tree Diameter I</a>
+                        <a href="https://cses.fi/problemset/task/1132" class="cses-link">Tree Distances I</a>
+                        <a href="https://cses.fi/problemset/task/1130" class="cses-link">Tree Matching</a>
+                        <a href="https://cses.fi/problemset/task/1687" class="cses-link">Company Queries I</a>
+                        <a href="https://cses.fi/problemset/task/1688" class="cses-link">Company Queries II</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="week-col">13</td>
+                    <td class="date-col">18 November, 2025</td>
+                    <td class="topic-col">AVL Trees & B-Trees</td>
+                    <td class="difficulty-col"><span class="difficulty-hard">Hard</span></td>
+                    <td class="problems-col">
+                        <span style="color: #666; font-style: italic;">No specific CSES problems listed</span>
+                    </td>
+                </tr>
+                
+                <tr class="part-header">
+                    <td colspan="5"><strong>Part 5 - Unordered Data Structure</strong></td>
+                </tr>
+                <tr>
+                    <td class="week-col">14</td>
+                    <td class="date-col">25 November, 2025</td>
+                    <td class="topic-col">Graphs (Adjacency Lists/Matrix, Traversals)</td>
+                    <td class="difficulty-col"><span class="difficulty-medium">Medium</span></td>
+                    <td class="problems-col">
+                        <a href="https://cses.fi/problemset/task/1192" class="cses-link">Counting Rooms</a>
+                        <a href="https://cses.fi/problemset/task/1193" class="cses-link">Labyrinth</a>
+                        <a href="https://cses.fi/problemset/task/1667" class="cses-link">Message Route</a>
+                        <a href="https://cses.fi/problemset/task/1666" class="cses-link">Building Roads</a>
+                        <a href="https://cses.fi/problemset/task/1668" class="cses-link">Building Teams</a>
+                        <a href="https://cses.fi/problemset/task/1669" class="cses-link">Round Trip</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="week-col">15</td>
+                    <td class="date-col">2 December, 2025</td>
+                    <td class="topic-col">Graphs (continued) & Huffman Code and Review</td>
+                    <td class="difficulty-col"><span class="difficulty-hard">Hard</span></td>
+                    <td class="problems-col">
+                        <a href="https://cses.fi/problemset/task/1671" class="cses-link">Shortest Routes I</a>
+                        <a href="https://cses.fi/problemset/task/1673" class="cses-link">Flight Discount</a>
+                        <a href="https://cses.fi/problemset/task/1673" class="cses-link">High Score</a>
+                        <a href="https://cses.fi/problemset/task/1195" class="cses-link">Flight Routes</a>
+                        <a href="https://cses.fi/problemset/task/1678" class="cses-link">Flight Routes Check</a>
+                        <a href="https://cses.fi/problemset/task/1202" class="cses-link">Investigation</a>
+                        <br><br>
+                        <strong>MST Problems:</strong><br>
+                        <a href="https://cses.fi/problemset/task/1675" class="cses-link">Building Roads (MST)</a>
+                        <a href="https://cses.fi/problemset/task/1675" class="cses-link">Road Reparation</a>
+                        <a href="https://cses.fi/problemset/task/1676" class="cses-link">Road Construction</a>
+                        <a href="https://cses.fi/problemset/task/1750" class="cses-link">Planets Queries I</a>
+                        <a href="https://cses.fi/problemset/task/1160" class="cses-link">Planets Queries II</a>
+                        <a href="https://cses.fi/problemset/task/1751" class="cses-link">Planets Cycles</a>
+                    </td>
+                </tr>
+                
+                <tr class="exam-row">
+                    <td colspan="5"><strong>🔸 Exam 3 - Thursday December 4th</strong></td>
+                </tr>
+                
+                <tr class="part-header">
+                    <td colspan="5"><strong>Final Topics - Dynamic Programming</strong></td>
+                </tr>
+                <tr>
+                    <td class="week-col">Final</td>
+                    <td class="date-col">December 6, 2025</td>
+                    <td class="topic-col">Dynamic Programming</td>
+                    <td class="difficulty-col"><span class="difficulty-hard">Hard</span></td>
+                    <td class="problems-col">
+                        <a href="https://cses.fi/problemset/task/1745" class="cses-link">Money Sums</a>
+                        <a href="https://cses.fi/problemset/task/1158" class="cses-link">Book Shop</a>
+                        <a href="https://cses.fi/problemset/task/1068" class="cses-link">Array Description</a>
+                        <a href="https://cses.fi/problemset/task/1635" class="cses-link">Edit Distance</a>
+                        <a href="https://cses.fi/problemset/task/1145" class="cses-link">Increasing Subsequence</a>
+                        <a href="https://cses.fi/problemset/task/1146" class="cses-link">Increasing Subsequence II</a>
+                        <br><br>
+                        <a href="https://cses.fi/problemset/task/1744" class="cses-link">Rectangle Cutting</a>
+                        <a href="https://cses.fi/problemset/task/1093" class="cses-link">Two Sets II</a>
+                        <a href="https://cses.fi/problemset/task/1140" class="cses-link">Projects (weighted)</a>
+                        <a href="https://cses.fi/problemset/task/1638" class="cses-link">Grid Paths</a>
+                        <a href="https://cses.fi/problemset/task/1653" class="cses-link">Elevator Rides</a>
+                        <a href="https://cses.fi/problemset/task/2220" class="cses-link">Counting Tilings</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <div style="margin-top: 30px; padding: 20px; background: #f8f9fa; border-radius: 8px;">
+            <h3 style="color: #2c3e50;">Notes:</h3>
+            <ul>
+                <li><strong>All links go directly to CSES problemset</strong> (https://cses.fi/problemset/)</li>
+                <li><strong>Difficulty levels:</strong> Easy (Green), Medium (Yellow), Hard (Red)</li>
+                <li><strong>Click "Export to CSV"</strong> to download as Excel-compatible file</li>
+                <li><strong>Problems are exactly as listed</strong> in Dr. Rizk's original schedule</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        function exportToCSV() {
+            const table = document.getElementById('scheduleTable');
+            const rows = table.querySelectorAll('tr');
+            let csvContent = "Week,Date,Topic,Difficulty,CSES Problems & Links\n";
+            
+            for (let i = 1; i < rows.length; i++) { // Skip header
+                const row = rows[i];
+                if (row.classList.contains('part-header') || row.classList.contains('exam-row')) {
+                    continue; // Skip section headers and exam rows
+                }
+                
+                const cells = row.querySelectorAll('td');
+                if (cells.length === 5) {
+                    const week = cells[0].textContent.trim();
+                    const date = cells[1].textContent.trim();
+                    const topic = cells[2].textContent.trim();
+                    const difficulty = cells[3].textContent.trim();
+                    
+                    // Extract problem links
+                    const links = cells[4].querySelectorAll('a');
+                    const problemLinks = Array.from(links).map(link => 
+                        `${link.textContent.trim()}: ${link.href}`
+                    ).join('; ');
+                    
+                    csvContent += `"${week}","${date}","${topic}","${difficulty}","${problemLinks}"\n`;
+                }
+            }
+            
+            const blob = new Blob([csvContent], { type: 'text/csv' });
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'COSC2436_Schedule_CSES_Links.csv';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            window.URL.revokeObjectURL(url);
+        }
+    </script>
+</body>
+</html>
