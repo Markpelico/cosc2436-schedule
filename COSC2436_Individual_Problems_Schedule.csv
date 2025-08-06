@@ -1,0 +1,74 @@
+Week,Date,Topic,Problem Name,Difficulty Level,Link
+1,26 August 2025,Introduction & C++ Review,Removing Digits,Easy,https://cses.fi/problemset/task/1637
+1,26 August 2025,Introduction & C++ Review,Dice Combinations,Easy,https://cses.fi/problemset/task/1633
+1,26 August 2025,Introduction & C++ Review,Grid Paths,Easy,https://cses.fi/problemset/task/1638
+1,26 August 2025,Introduction & C++ Review,Increasing Array,Easy,https://cses.fi/problemset/task/1094
+1,26 August 2025,Introduction & C++ Review,Subarray Sums I,Easy,https://cses.fi/problemset/task/1660
+1,26 August 2025,Introduction & C++ Review,Subarray Sums II,Medium,https://cses.fi/problemset/task/1661
+2,2 September 2025,Recursion,Tower of Hanoi,Medium,https://cses.fi/problemset/task/2165
+2,2 September 2025,Recursion,Chessboard and Queens,Hard,https://cses.fi/problemset/task/1624
+3,9 September 2025,Arrays,Sum of Two Values,Medium,https://cses.fi/problemset/task/1640
+3,9 September 2025,Arrays,Maximum Subarray Sum,Easy,https://cses.fi/problemset/task/1643
+3,9 September 2025,Arrays,Static Range Sum Queries,Easy,https://cses.fi/problemset/task/1646
+3,9 September 2025,Arrays,Range Xor Queries,Easy,https://cses.fi/problemset/task/1650
+3,9 September 2025,Arrays,Range Update Queries,Medium,https://cses.fi/problemset/task/1651
+4,16 September 2025,Lists (Singly & Doubly Linked),Missing Number,Easy,https://cses.fi/problemset/task/1083
+4,16 September 2025,Lists (Singly & Doubly Linked),Missing Coin Sum,Easy,https://cses.fi/problemset/task/2183
+4,16 September 2025,Lists (Singly & Doubly Linked),Factory Machines,Medium,https://cses.fi/problemset/task/1620
+4,16 September 2025,Lists (Singly & Doubly Linked),Sum of Three Values,Medium,https://cses.fi/problemset/task/1641
+4,16 September 2025,Lists (Singly & Doubly Linked),Apartments,Medium,https://cses.fi/problemset/task/1084
+4,16 September 2025,Lists (Singly & Doubly Linked),Tasks and Deadlines,Easy,https://cses.fi/problemset/task/1630
+5,23 September 2025,Quadratic Sorting,Distinct Numbers,Easy,https://cses.fi/problemset/task/1621
+5,23 September 2025,Quadratic Sorting,Collecting Numbers,Medium,https://cses.fi/problemset/task/2216
+7,7 October 2025,Stacks,Nearest Smaller Values,Easy,https://cses.fi/problemset/task/1645
+7,7 October 2025,Stacks,Restaurant Customers,Easy,https://cses.fi/problemset/task/1619
+7,7 October 2025,Stacks,Traffic Lights,Medium,https://cses.fi/problemset/task/1163
+8,14 October 2025,Queues & Priority Queues (Heaps),Ferris Wheel,Easy,https://cses.fi/problemset/task/1090
+8,14 October 2025,Queues & Priority Queues (Heaps),Movie Festival,Easy,https://cses.fi/problemset/task/1629
+8,14 October 2025,Queues & Priority Queues (Heaps),Minimizing Coins,Easy,https://cses.fi/problemset/task/1634
+8,14 October 2025,Queues & Priority Queues (Heaps),Coin Combinations I,Easy,https://cses.fi/problemset/task/1635
+8,14 October 2025,Queues & Priority Queues (Heaps),Coin Combinations II,Medium,https://cses.fi/problemset/task/1636
+9,21 October 2025,Hash Tables,Distinct Numbers,Easy,https://cses.fi/problemset/task/1621
+9,21 October 2025,Hash Tables,Playlist,Medium,https://cses.fi/problemset/task/1141
+9,21 October 2025,Hash Tables,Array Description,Medium,https://cses.fi/problemset/task/1068
+9,21 October 2025,Hash Tables,Towers,Easy,https://cses.fi/problemset/task/1073
+9,21 October 2025,Hash Tables,Collecting Numbers II,Hard,https://cses.fi/problemset/task/2216
+9,21 October 2025,Hash Tables,Stick Lengths,Easy,https://cses.fi/problemset/task/1074
+10,28 October 2025,Sorting (Merge/Quick) & Binary Search Trees,Sum of Four Values,Medium,https://cses.fi/problemset/task/1642
+10,28 October 2025,Sorting (Merge/Quick) & Binary Search Trees,Room Allocation,Hard,https://cses.fi/problemset/task/1164
+11,4 November 2025,Strings,Repetitions,Easy,https://cses.fi/problemset/task/1069
+11,4 November 2025,Strings,Palindrome Reorder,Medium,https://cses.fi/problemset/task/1110
+12,11 November 2025,Binary Trees & AVL Trees,Subordinates,Easy,https://cses.fi/problemset/task/1674
+12,11 November 2025,Binary Trees & AVL Trees,Tree Diameter,Easy,https://cses.fi/problemset/task/1131
+12,11 November 2025,Binary Trees & AVL Trees,Tree Distances I,Medium,https://cses.fi/problemset/task/1132
+12,11 November 2025,Binary Trees & AVL Trees,Tree Matching,Medium,https://cses.fi/problemset/task/1130
+12,11 November 2025,Binary Trees & AVL Trees,Company Queries I,Easy,https://cses.fi/problemset/task/1687
+12,11 November 2025,Binary Trees & AVL Trees,Company Queries II,Easy,https://cses.fi/problemset/task/1688
+13,18 November 2025,AVL Trees & B-Trees,Salary Queries,Hard,https://cses.fi/problemset/task/1144
+13,18 November 2025,AVL Trees & B-Trees,Hotel Queries,Hard,https://cses.fi/problemset/task/1143
+14,25 November 2025,Graphs (Adjacency Lists/Matrix Traversals),Counting Rooms,Easy,https://cses.fi/problemset/task/1192
+14,25 November 2025,Graphs (Adjacency Lists/Matrix Traversals),Labyrinth,Medium,https://cses.fi/problemset/task/1193
+14,25 November 2025,Graphs (Adjacency Lists/Matrix Traversals),Message Route,Easy,https://cses.fi/problemset/task/1667
+14,25 November 2025,Graphs (Adjacency Lists/Matrix Traversals),Building Roads,Easy,https://cses.fi/problemset/task/1666
+14,25 November 2025,Graphs (Adjacency Lists/Matrix Traversals),Building Teams,Easy,https://cses.fi/problemset/task/1668
+14,25 November 2025,Graphs (Adjacency Lists/Matrix Traversals),Round Trip,Medium,https://cses.fi/problemset/task/1669
+15,2 December 2025,Graphs (continued) & Huffman Code,Shortest Routes I,Medium,https://cses.fi/problemset/task/1671
+15,2 December 2025,Graphs (continued) & Huffman Code,Flight Discount,Medium,https://cses.fi/problemset/task/1673
+15,2 December 2025,Graphs (continued) & Huffman Code,High Score,Hard,https://cses.fi/problemset/task/1672
+15,2 December 2025,Graphs (continued) & Huffman Code,Flight Routes,Medium,https://cses.fi/problemset/task/1195
+15,2 December 2025,Graphs (continued) & Huffman Code,Flight Routes Check,Medium,https://cses.fi/problemset/task/1678
+15,2 December 2025,Graphs (continued) & Huffman Code,Investigation,Medium,https://cses.fi/problemset/task/1202
+15,2 December 2025,Graphs (continued) & Huffman Code,Road Reparation,Easy,https://cses.fi/problemset/task/1675
+15,2 December 2025,Graphs (continued) & Huffman Code,Road Construction,Easy,https://cses.fi/problemset/task/1676
+15,2 December 2025,Graphs (continued) & Huffman Code,Planets Queries I,Hard,https://cses.fi/problemset/task/1750
+15,2 December 2025,Graphs (continued) & Huffman Code,Planets Queries II,Hard,https://cses.fi/problemset/task/1160
+15,2 December 2025,Graphs (continued) & Huffman Code,Planets Cycles,Medium,https://cses.fi/problemset/task/1751
+Final,6 December 2025,Dynamic Programming,Money Sums,Easy,https://cses.fi/problemset/task/1745
+Final,6 December 2025,Dynamic Programming,Book Shop,Medium,https://cses.fi/problemset/task/1158
+Final,6 December 2025,Dynamic Programming,Edit Distance,Easy,https://cses.fi/problemset/task/1635
+Final,6 December 2025,Dynamic Programming,Increasing Subsequence,Medium,https://cses.fi/problemset/task/1145
+Final,6 December 2025,Dynamic Programming,Rectangle Cutting,Medium,https://cses.fi/problemset/task/1744
+Final,6 December 2025,Dynamic Programming,Two Sets II,Easy,https://cses.fi/problemset/task/1093
+Final,6 December 2025,Dynamic Programming,Projects,Medium,https://cses.fi/problemset/task/1140
+Final,6 December 2025,Dynamic Programming,Elevator Rides,Hard,https://cses.fi/problemset/task/1653
+Final,6 December 2025,Dynamic Programming,Counting Tilings,Hard,https://cses.fi/problemset/task/2220
