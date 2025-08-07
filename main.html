@@ -155,8 +155,8 @@
     <div class="container">
       <h1>COSC2436 Data Structures - Course Schedule</h1>
 
-      <button class="export-btn" onclick="exportToCSV()">
-        📊 Export to CSV
+      <button class="export-btn" onclick="exportToExcel()">
+        📊 Export to Excel
       </button>
 
       <table id="scheduleTable">
@@ -1211,16 +1211,34 @@
             problems
           </li>
           <li>All problems link directly to CSES problemset</li>
-          <li>Export to CSV for Excel compatibility</li>
+          <li>Export to Excel with formatted styling and colors</li>
         </ul>
       </div>
     </div>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
     <script>
-      function exportToCSV() {
+      function exportToExcel() {
         const table = document.getElementById("scheduleTable");
         const rows = table.querySelectorAll("tr");
-        let csvContent = "Week,Date,Topic,Difficulty,Problem Name,Link\n";
+
+        // Create workbook and worksheet
+        const wb = XLSX.utils.book_new();
+        const ws_data = [];
+
+        // Add headers
+        ws_data.push([
+          "Week",
+          "Date",
+          "Topic",
+          "Problem Name",
+          "Difficulty Level",
+          "Link",
+        ]);
+
+        // Process data rows and track merge ranges
+        const mergeRanges = [];
+        let currentRow = 1; // Start after header
 
         for (let i = 1; i < rows.length; i++) {
           const row = rows[i];
@@ -1242,23 +1260,191 @@
             if (link) {
               const problemName = link.textContent.trim();
               const problemLink = link.href;
-              csvContent += `"${week}","${date}","${topic}","${difficulty}","${problemName}","${problemLink}"\n`;
-            } else {
-              const problemText = cells[4].textContent.trim();
-              csvContent += `"${week}","${date}","${topic}","${difficulty}","${problemText}",""\n`;
+
+              ws_data.push([
+                week,
+                date,
+                topic,
+                problemName,
+                difficulty,
+                problemLink,
+              ]);
+              currentRow++;
             }
           }
         }
 
-        const blob = new Blob([csvContent], { type: "text/csv" });
-        const url = window.URL.createObjectURL(blob);
-        const a = document.createElement("a");
-        a.href = url;
-        a.download = "COSC2436_Individual_Problems_Schedule.csv";
-        document.body.appendChild(a);
-        a.click();
-        document.body.removeChild(a);
-        window.URL.revokeObjectURL(url);
+        // Create worksheet from data
+        const ws = XLSX.utils.aoa_to_sheet(ws_data);
+
+        // Find and create merge ranges for repeated values
+        const dataRows = ws_data.slice(1); // Skip header
+        let weekStart = 1,
+          dateStart = 1,
+          topicStart = 1;
+        let lastWeek = "",
+          lastDate = "",
+          lastTopic = "";
+
+        for (let i = 0; i < dataRows.length; i++) {
+          const currentWeek = dataRows[i][0];
+          const currentDate = dataRows[i][1];
+          const currentTopic = dataRows[i][2];
+          const rowIndex = i + 1; // +1 because we start after header
+
+          // Check for week changes
+          if (currentWeek !== lastWeek) {
+            if (i > 0 && weekStart < rowIndex) {
+              mergeRanges.push({
+                s: { r: weekStart, c: 0 },
+                e: { r: rowIndex - 1, c: 0 },
+              });
+            }
+            weekStart = rowIndex;
+            lastWeek = currentWeek;
+          }
+
+          // Check for date changes
+          if (currentDate !== lastDate) {
+            if (i > 0 && dateStart < rowIndex) {
+              mergeRanges.push({
+                s: { r: dateStart, c: 1 },
+                e: { r: rowIndex - 1, c: 1 },
+              });
+            }
+            dateStart = rowIndex;
+            lastDate = currentDate;
+          }
+
+          // Check for topic changes
+          if (currentTopic !== lastTopic) {
+            if (i > 0 && topicStart < rowIndex) {
+              mergeRanges.push({
+                s: { r: topicStart, c: 2 },
+                e: { r: rowIndex - 1, c: 2 },
+              });
+            }
+            topicStart = rowIndex;
+            lastTopic = currentTopic;
+          }
+        }
+
+        // Add final merge ranges
+        const lastRowIndex = dataRows.length;
+        if (weekStart < lastRowIndex) {
+          mergeRanges.push({
+            s: { r: weekStart, c: 0 },
+            e: { r: lastRowIndex, c: 0 },
+          });
+        }
+        if (dateStart < lastRowIndex) {
+          mergeRanges.push({
+            s: { r: dateStart, c: 1 },
+            e: { r: lastRowIndex, c: 1 },
+          });
+        }
+        if (topicStart < lastRowIndex) {
+          mergeRanges.push({
+            s: { r: topicStart, c: 2 },
+            e: { r: lastRowIndex, c: 2 },
+          });
+        }
+
+        // Apply merge ranges
+        ws["!merges"] = mergeRanges;
+
+        // Set column widths
+        const colWidths = [
+          { wch: 8 }, // Week
+          { wch: 15 }, // Date
+          { wch: 25 }, // Topic
+          { wch: 30 }, // Problem Name
+          { wch: 15 }, // Difficulty Level
+          { wch: 50 }, // Link
+        ];
+        ws["!cols"] = colWidths;
+
+        // Apply styling
+        const range = XLSX.utils.decode_range(ws["!ref"]);
+
+        // Style headers (row 0)
+        for (let col = range.s.c; col <= range.e.c; col++) {
+          const cellRef = XLSX.utils.encode_cell({ r: 0, c: col });
+          if (!ws[cellRef]) continue;
+
+          ws[cellRef].s = {
+            font: { bold: true, color: { rgb: "000000" }, sz: 12 },
+            fill: { fgColor: { rgb: "D3D3D3" } },
+            alignment: { horizontal: "center", vertical: "center" },
+            border: {
+              top: { style: "thin", color: { rgb: "000000" } },
+              bottom: { style: "thin", color: { rgb: "000000" } },
+              left: { style: "thin", color: { rgb: "000000" } },
+              right: { style: "thin", color: { rgb: "000000" } },
+            },
+          };
+        }
+
+        // Style data rows and apply difficulty colors (skip header row)
+        for (let row = 1; row <= range.e.r; row++) {
+          for (let col = range.s.c; col <= range.e.c; col++) {
+            const cellRef = XLSX.utils.encode_cell({ r: row, c: col });
+            if (!ws[cellRef]) continue;
+
+            // Default cell styling
+            ws[cellRef].s = {
+              alignment: { vertical: "center", wrapText: true },
+              border: {
+                top: { style: "thin", color: { rgb: "000000" } },
+                bottom: { style: "thin", color: { rgb: "000000" } },
+                left: { style: "thin", color: { rgb: "000000" } },
+                right: { style: "thin", color: { rgb: "000000" } },
+              },
+            };
+
+            // Difficulty level column (column 4, index 4)
+            if (col === 4) {
+              const difficulty = ws[cellRef].v;
+              if (difficulty === "Easy") {
+                ws[cellRef].s.fill = { fgColor: { rgb: "90EE90" } }; // Light green
+                ws[cellRef].s.font = { color: { rgb: "000000" }, bold: false };
+              } else if (difficulty === "Medium") {
+                ws[cellRef].s.fill = { fgColor: { rgb: "FFFF00" } }; // Yellow
+                ws[cellRef].s.font = { color: { rgb: "000000" }, bold: false };
+              } else if (difficulty === "Hard") {
+                ws[cellRef].s.fill = { fgColor: { rgb: "FF6B6B" } }; // Light red
+                ws[cellRef].s.font = { color: { rgb: "000000" }, bold: false };
+              }
+              ws[cellRef].s.alignment = {
+                horizontal: "center",
+                vertical: "center",
+              };
+            }
+
+            // Week column styling
+            if (col === 0 && ws[cellRef].v) {
+              ws[cellRef].s.font = { bold: true, color: { rgb: "000000" } };
+              ws[cellRef].s.alignment = {
+                horizontal: "center",
+                vertical: "center",
+              };
+            }
+
+            // Date and Topic column center alignment
+            if ((col === 1 || col === 2) && ws[cellRef].v) {
+              ws[cellRef].s.alignment = {
+                horizontal: "center",
+                vertical: "center",
+              };
+            }
+          }
+        }
+
+        // Add worksheet to workbook
+        XLSX.utils.book_append_sheet(wb, ws, "Schedule");
+
+        // Save the file
+        XLSX.writeFile(wb, "COSC2436_Individual_Problems_Schedule.xlsx");
       }
     </script>
   </body>
